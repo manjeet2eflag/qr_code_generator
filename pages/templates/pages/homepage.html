@@ -1,0 +1,41 @@
+<!-- pages/templates/pages/home.html -->
+
+{% extends "base.html" %}
+
+
+{% block page_content %}
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">QR GEN</h5>
+                    <p class="card-text">To generate text or URL QR, click here</p>
+                    <a href="{% url 'index' %}" class="btn btn-primary">Generate QR url/text</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">SHELTER ID QR</h5>
+                    <p class="card-text">Generate QR for shelter details</p>
+                    <a href="{% url 'generate_qr' %}" class="btn btn-primary">Generate Bus Shelter QR</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Upload Data</h5>
+                    <p class="card-text">Please upload shelter data here</p>
+                    <a href="{% url 'upload_data' %}" class="btn btn-primary">Data Upload</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock page_content %}

@@ -1,0 +1,54 @@
+<!-- shelter_details.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Shelter Details</title>
+    <style>
+        /* Optional: Add some basic styling */
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+        }
+        .shelter-details {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        .detail-item {
+            margin-bottom: 10px;
+        }
+        .detail-label {
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="shelter-details">
+        <h1>Shelter Details</h1>
+        <div class="detail-item">
+            <span class="detail-label">Hoarding ID:</span>
+            <span>{{ shelter.id }}</span>
+        </div>
+        <div class="detail-item">
+            <span class="detail-label">Owner Name:</span>
+            <span>{{ shelter.name }}</span>
+        </div>
+        <div class="detail-item">
+            <span class="detail-label">Site no:</span>
+            <span>{{ shelter.type }}</span>
+        </div>
+        <div class="detail-item">
+            <span class="detail-label">Location:</span>
+            <span>{{ shelter.location }}</span>
+        </div>
+        <div class="detail-item">
+            <span class="detail-label">Contact number:</span>
+            <span>{{ shelter.contact }}</span>
+        </div>
+        <div class="detail-item">
+            <span class="detail-label">Size:</span>
+            <span>{{ shelter.size }}</span>
+        </div>
+    </div>
+</body>
+</html>
