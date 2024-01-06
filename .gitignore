@@ -160,6 +160,7 @@ cython_debug/
 #.idea/
 # Text backup files
 *.bak
+qr_venv/
 
 # Database
 *.sqlite3
