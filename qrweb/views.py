@@ -182,13 +182,13 @@ def upload_data(request):
                         shelter_instance.save()
 
                     messages.success(request, "Data uploaded successfully from the file.")
-                    return redirect("http://127.0.0.1:8000/home/upload/")
+                    return redirect("https://web-production-0ef6.up.railway.app/home/upload/")
                 else:
                     messages.error(request, "Column names in the file do not match the expected columns.")
-                    return redirect("http://127.0.0.1:8000/home/upload/")
+                    return redirect("https://web-production-0ef6.up.railway.app/home/upload/")
             else:
                 messages.error(request, "Please upload a valid .xlsx or .csv file.")
-                return redirect("http://127.0.0.1:8000/home/upload/")
+                return redirect("https://web-production-0ef6.up.railway.app/home/upload/")
         else:
             # Handle normal text input as before
             id_value = request.POST.get("id")
@@ -209,7 +209,7 @@ def upload_data(request):
             shelter_instance.save()
 
             messages.success(request, "Data uploaded successfully from the form.")
-            return redirect("http://127.0.0.1:8000/home/upload/")
+            return redirect("https://web-production-0ef6.up.railway.app/home/upload/")
     else:
         return render(request, "qrweb/upload.html")
 
@@ -226,7 +226,7 @@ def generate_qr(request):
         context['no_data_found'] = True
         return render(request, 'qrweb/index.html', context=context)
 
-    shelter_url = f"http://127.0.0.1:8000/home/upload/qr/{shelter_instance.id}"  # Replace with your URL pattern
+    shelter_url = f"https://web-production-0ef6.up.railway.app/home/upload/qr/{shelter_instance.id}"  # Replace with your URL pattern
 
     qr = qrcode.QRCode(error_correction=qrcode.constants.ERROR_CORRECT_H)
 
