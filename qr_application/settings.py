@@ -22,12 +22,15 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = "django-insecure-sixp9l%lqeq48m2k*c)zg8^i8w8p-kn!z1u3&prqts61vqsi(t"
+
+SECRET_KEY = os.environ.get("DJANGO_SECRET_KEY", "django-insecure-sixp9l%lqeq48m2k*c)zg8^i8w8p-kn!z1u3&prqts61vqsi(t")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = os.environ.get('DJANGO_DEBUG', '') != 'False'
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['.railway.app','127.0.0.1']
+
+CSRF_TRUSTED_ORIGINS = ['https://*.railway.app','https://*.127.0.0.1']
 
 
 # Application definition
@@ -89,14 +92,21 @@ WSGI_APPLICATION = "qr_application.wsgi.application"
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
+# DATABASES = {
+#     "default": {
+#         "ENGINE": "django.db.backends.postgresql_psycopg2",
+#         "NAME": "qr_db",
+#         "USER": "qr_user",
+#         "PASSWORD": "qr_password",
+#         "HOST": "localhost",
+#         "PORT": "",
+#     }
+# }
+
 DATABASES = {
-    "default": {
-        "ENGINE": "django.db.backends.postgresql_psycopg2",
-        "NAME": "qr_db",
-        "USER": "qr_user",
-        "PASSWORD": "qr_password",
-        "HOST": "localhost",
-        "PORT": "",
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
 
